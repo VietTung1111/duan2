@@ -1,0 +1,221 @@
+
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.featured-books {
+max-width: 1200px;
+margin: 20px auto;
+padding: 20px;
+text-align: center;
+}
+
+.featured-books h2 {
+font-size: 2em;
+margin-bottom: 20px;
+background-color: #10b1b6;
+color: white;
+}
+
+.book-list {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+gap: 10px;
+
+}
+
+.book {
+width: 250px;
+background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+padding: 15px;
+text-align: center;
+border-radius: 12px;
+}
+/* hình ảnh của sách */
+.book img {
+width: 100%;
+height:auto;
+border-radius: 5px;
+
+}
+.book h3 {
+margin-top: 15px;
+font-size: 1.2em;
+}
+
+.book p {
+color: #0f0e0e;
+font-size: 0.9em;
+margin: 5px 0 10px;
+}
+.price {
+font-size: 1em;
+}
+/* Nút bấm*/
+button {
+background-color:#fff;
+color: rgb(12, 12, 12);
+border: none;
+padding: 10px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #10b1b6;
+}
+
+/*giỏ hàng*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #10b1b6;
+    color: white;
+}
+
+table td {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Định dạng cho các hàng */
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Định dạng cho ô nhập số lượng */
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Nút cập nhật giỏ hàng */
+button[type="submit"] {
+    background-color: #10b1b6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    margin: 20px auto;
+}
+
+button[type="submit"]:hover {
+    background-color: #10b1b6;
+}
+
+/* Liên kết xóa sách */
+a {
+    color: #dc3545;
+    text-decoration: none;
+    
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Định dạng tổng cộng */
+td[colspan="3"] {
+    font-weight: bold;
+    text-align: right;
+    font-size: 1.2em;
+    color: #0e9498;
+}
+
+/* Định dạng cho liên kết tiếp tục mua sắm */
+a[href="index.php"] {
+    display: inline-block;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #10b1b6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a[href="index.php"]:hover {
+    background-color: #10b1b6;
+}
+
+   
+/*chân trang*/
+footer {
+    background-color: #10b1b6;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Định dạng cho icon Zalo */
+.zalo-icon {
+    position: fixed; /* Để icon ở vị trí cố định trên màn hình */
+    bottom: 20px;    /* Căn chỉnh vị trí dưới cùng */
+    right: 20px;     /* Căn chỉnh vị trí bên phải */
+    animation: moveUpDown 2s ease-in-out infinite; /* Gọi hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng chuyển động lên xuống */
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

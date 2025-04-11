@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1> Giỏ Hàng Của Bạn</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- JavaScript sẽ cập nhật -->
+        </tbody>
+    </table>
+    <h2>Tổng cộng: <span id="total-price">0</span> VNĐ</h2>
+    <button onclick="clearCart()"> Xóa Giỏ Hàng</button>
+    <a href="index.php"> Tiếp Tục Mua Sắm</a>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+            let cartTable = document.getElementById("cart-items");
+            cartTable.innerHTML = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                let itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                cartTable.innerHTML += `
+                    <tr>
+                        <td><img src="${item.image}" width="50"></td>
+                        <td>${item.name}</td>
+                        <td>${item.price.toLocaleString()} VNĐ</td>
+                        <td>
+                            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this)">
+                        </td>
+                        <td>${itemTotal.toLocaleString()} VNĐ</td>
+                        <td>
+                            <button onclick="removeItem(${index})"> Xóa</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById("total-price").innerText = total.toLocaleString();
+        }
+
+        function updateQuantity(index, input) {
+            let quantity = parseInt(input.value);
+            if (quantity < 1) {
+                input.value = 1;
+                quantity = 1;
+            }
+            cart[index].quantity = quantity;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeItem(index) {
+            if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                renderCart();
+            }
+        }
+
+        function clearCart() {
+            if (confirm("Bạn có chắc muốn xóa toàn bộ giỏ hàng?")) {
+                localStorage.removeItem("cart");
+                cart = [];
+                renderCart();
+            }
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>
